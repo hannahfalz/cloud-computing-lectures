@@ -41,7 +41,7 @@ async def counter(websocket):
     finally:
         # Unregister user
         USERS.remove(websocket)
-        broadcast(USERS, user_event)
+        broadcast(USERS, user_event())
 
 
 async def main():
