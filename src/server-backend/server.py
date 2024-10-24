@@ -3,7 +3,7 @@ import json
 import logging
 from websockets.asyncio.server import broadcast, serve
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig()
 
 USERS = set()
 
@@ -41,7 +41,7 @@ async def counter(websocket):
     finally:
         # Unregister user
         USERS.remove(websocket)
-        broadcast(USERS, user_event())
+        broadcast(USERS, user_event)
 
 
 async def main():
